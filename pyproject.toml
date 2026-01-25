@@ -1,6 +1,6 @@
 [project]
 name = "wyoming-onnx-asr"
-version = "0.4.1"
+version = "0.5.0"
 description = "Wyoming Server for ONNX ASR"
 readme = "README.md"
 requires-python = ">=3.10.0,<3.14"

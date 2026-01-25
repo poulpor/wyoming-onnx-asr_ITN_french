@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0]
+
+### Changed
+
+- Breaking change: `ONNX_ASR_MODEL_DIR` is now used for the model cache directory
+- Updated onnx-asr to 0.10.1 with support for canary v2
+
+###
+
+## [0.4.1]
+
+### Fixed
+
+- Fixed version number
+
+## [0.4.0]
+
+### Changed
+
+- Updated onnx-asr to 0.7.0 add support for parakeet-v3
+
 ## [0.3.5] - 2025-08-02
 
 ### Fixed
