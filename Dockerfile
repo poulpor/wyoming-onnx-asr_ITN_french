@@ -29,7 +29,21 @@ FROM python:3.12-slim-bookworm
 # It is important to use the image that matches the builder, as the path to the
 # Python executable must be the same, e.g., using `python:3.11-slim-bookworm`
 # will fail.
+# Mettez à jour les paquets système et installez les dépendances nécessaires
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
+# Installez les packages Python nécessaires
+RUN python3.12 -m venv /app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
+RUN python -m ensurepip --upgrade || true
+RUN python -m pip install --upgrade pip
+RUN python -m pip install nemo_text_processing
+	
 WORKDIR /app
 COPY --from=packages-builder --chown=app:app /app/.venv /app/.venv
 # Copy just the site-packages from our app installation (tiny layer)
