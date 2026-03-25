@@ -19,28 +19,36 @@ You can add or modify the handler.py file as much as you like to include new rul
 
 [Wyoming protocol](https://github.com/rhasspy/wyoming) server for the [onnx-asr](https://github.com/istupakov/onnx-asr/) speech to text system.
 
-## Docker Image
+## Docker Compose:
 
-In progress...
+Many thanks to [Leggz](https://www.reddit.com/r/homeassistant/comments/1r002uq/comment/o4f1gbj/) for the general layout.
 
-## Local Install
-
-Install [uv](https://docs.astral.sh/uv/)
-
-Clone the repository and use `uv`:
-
-``` sh
-git clone https://github.com/tboby/wyoming-onnx-asr.git
-cd wyoming-onnx-asr
-uv sync
+```
+services:
+  wyoming_stt_nemo:
+    image: poulpoche/wyoming-onnx-asr_itn_french
+    container_name: wyoming-onnx-asr-itn-fr
+    restart: unless-stopped
+    ports:
+      - "10300:10300"
+    volumes:
+      - /path/to/your/data/handler.py:/app/wyoming_onnx_asr/handler.py #path to your handler.py file for easier modification if needed (copy the one in this fork /wyoming_onnx_asr/ folder to apply french ITN for numbers)
+      - /path/to/your/data:/data #path to the folder to store your chosen models
+    command:
+       - --uri 
+       - "tcp://0.0.0.0:10300"
+       - --model-multilingual
+       # Choose one model between Parakeet and Canary, not both
+       - "nemo-parakeet-tdt-0.6b-v3"
+#      - "nemo-canary-1b-v2"
+       - --model-dir
+       - "/data"
+       # Try changing "cpu" to "cuda" if you want to use the Orin AGX GPU
+       - --device
+       - "cpu"
 ```
 
-Run a server anyone can connect to:
-
-```sh
-uv run --uri 'tcp://0.0.0.0:10300'
-```
-
+    
 The `--model-en` or `--model-multilingual` can also be a HuggingFace model but see [onnx-asr](https://github.com/istupakov/onnx-asr?tab=readme-ov-file#supported-model-names) for details
 
 **NOTE**: Models are downloaded under `ONNX_ASR_MODEL_DIR` (default `/data` in Docker images), with a per-model subdirectory.
