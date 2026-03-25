@@ -1,5 +1,8 @@
 # Wyoming Onnx ASR
 
+**Disclaimer: Please note that the limited code contributed to this project was largely developed with the assistance of Mistral’s Le Chat and Perplexity Pro conversational agents!**
+
+
 Why the fork: 
 
 I’ve noticed that models like parakeet-tdt-0.6b-v3 or Canary-1b-v2 do not apply the same Inverse Text Normalization (ITN) processing for English (en) as they do for multilingual settings. In English, numbers are transcribed as digits (e.g., "twenty one" → 21), whereas in multilingual mode—especially for French—numbers are transcribed as words (e.g., "vingt-et-un" → "vingt-et-un").
@@ -11,6 +14,8 @@ This fork adds the "nemo-text-processing" package to the container, enabling pos
 Currently, this fork allows numbers to be transcribed as digits—for example, for times ("douze heures trente" → 12h30, "douze heure" → 12h00, etc.)—and can therefore be used with Home Assistant if this value is used in your automations.
 
 You can add or modify the handler.py file as much as you like to include new rules or post-processing steps for the parakeet-tdt-0.6b-v3 and Canary-1b-v2 models (and likely others) currently managed by tbobby’s project. I warmly thank @tboby for their work, which has allowed me to use these high-performing models in French.
+
+
 
 [Wyoming protocol](https://github.com/rhasspy/wyoming) server for the [onnx-asr](https://github.com/istupakov/onnx-asr/) speech to text system.
 
