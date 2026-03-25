@@ -16,18 +16,7 @@ You can add or modify the handler.py file as much as you like to include new rul
 
 ## Docker Image
 
-```shell
-docker run -it -p 10300:10300 -v /path/to/local/data:/data ghcr.io/tboby/wyoming-onnx-asr
-```
-
-or for gpu
-
-```shell
-docker run -it -p 10300:10300 --gpus all -v /path/to/local/data:/data ghcr.io/tboby/wyoming-onnx-asr-gpu
-```
-
-There is also gpu TensorRT support, but it's a huge image and doesn't seem to make much performance difference.
-You might want to mount in a cache folder if using it (`/cache`).
+In progress...
 
 ## Local Install
 
