@@ -1,4 +1,4 @@
-# Wyoming Onnx ASR
+# Wyoming Onnx ASR (tuned for french language to use with Home Assistant)
 
 **Disclaimer: Please note that the limited code contributed to this fork was largely developed with the assistance of Mistral’s Le Chat and Perplexity Pro conversational agents!**
 
