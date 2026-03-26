@@ -1,6 +1,6 @@
 # Wyoming Onnx ASR
 
-**Disclaimer: Please note that the limited code contributed to this project was largely developed with the assistance of Mistral’s Le Chat and Perplexity Pro conversational agents!**
+**Disclaimer: Please note that the limited code contributed to this fork was largely developed with the assistance of Mistral’s Le Chat and Perplexity Pro conversational agents!**
 
 
 Why the fork: 
